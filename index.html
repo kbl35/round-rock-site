@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f05d3b" />
+    <title>Round Rock, Texas — Big Spirit, Easy Pace</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+      :root { --ink:#162124; --cream:#f8f1e6; --coral:#ef633f; --yellow:#f5bd32; --aqua:#52bbb3; --paper:#fffaf2; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--cream); font-family:Manrope, sans-serif; }
+      .wrap { max-width:1240px; margin:auto; padding:0 32px; }
+      nav { height:82px; display:flex; align-items:center; justify-content:space-between; }
+      .brand { display:flex; align-items:center; gap:11px; font-family:Fraunces, serif; font-weight:900; font-size:23px; text-decoration:none; color:var(--ink); }
+      .sun { width:31px; height:31px; background:var(--yellow); border-radius:50%; position:relative; box-shadow:0 0 0 5px var(--coral); }
+      .links { display:flex; gap:29px; align-items:center; }
+      .links a { color:var(--ink); text-decoration:none; font-size:13px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+      .button { background:var(--ink); color:white !important; padding:12px 17px; border-radius:999px; }
+      .hero { min-height:590px; border-radius:26px; overflow:hidden; position:relative; padding:65px; display:flex; align-items:flex-end; background:linear-gradient(120deg, rgba(13,29,32,.74), rgba(13,29,32,.08) 70%), url('https://images.unsplash.com/photo-1531218150217-54595bc2b934?auto=format&fit=crop&w=1800&q=85') center/cover; }
+      .hero::after { content:''; position:absolute; right:-110px; top:-100px; width:360px; height:360px; border-radius:50%; border:40px solid rgba(245,189,50,.9); }
+      .hero-content { max-width:710px; position:relative; z-index:1; color:#fffdf7; }
+      .eyebrow { font:500 12px 'DM Mono', monospace; letter-spacing:.15em; text-transform:uppercase; display:flex; align-items:center; gap:9px; }
+      .eyebrow::before { content:''; display:inline-block; width:25px; height:2px; background:var(--yellow); }
+      h1 { font-family:Fraunces, serif; font-size:clamp(4rem, 9vw, 8.3rem); font-weight:900; line-height:.82; letter-spacing:-.075em; margin:24px 0 28px; }
+      .hero p { max-width:480px; font-size:16px; line-height:1.7; margin:0; color:#f7efe4; }
+      .scroll { position:absolute; right:42px; bottom:38px; color:white; writing-mode:vertical-rl; text-transform:uppercase; font:500 10px 'DM Mono', monospace; letter-spacing:.13em; z-index:1; }
+      .intro { padding:118px 0 94px; display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:start; }
+      .intro h2, .section-head h2 { font-family:Fraunces, serif; font-size:clamp(2.5rem,4vw,4.3rem); letter-spacing:-.06em; line-height:.96; margin:0; }
+      .intro-copy { font-size:20px; line-height:1.65; max-width:580px; }
+      .intro-copy strong { color:var(--coral); }
+      .stats { display:flex; gap:38px; margin-top:40px; }
+      .stat b { display:block; font-family:Fraunces,serif; font-size:38px; letter-spacing:-.06em; }
+      .stat span { font:500 10px 'DM Mono', monospace; text-transform:uppercase; letter-spacing:.1em; }
+      .guide { background:var(--ink); color:#f9f2e5; padding:104px 0 116px; }
+      .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:42px; }
+      .section-head p { max-width:315px; color:#c9d1cb; line-height:1.6; font-size:14px; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+      .card { min-height:420px; padding:25px; display:flex; flex-direction:column; justify-content:flex-end; border-radius:17px; overflow:hidden; position:relative; background-position:center; background-size:cover; isolation:isolate; }
+      .card::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,rgba(7,19,20,.9),rgba(7,19,20,.02) 65%); }
+      .card:nth-child(1) { background-image:url('https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?auto=format&fit=crop&w=900&q=80'); }
+      .card:nth-child(2) { background-image:url('https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=80'); }
+      .card:nth-child(3) { background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80'); }
+      .card .tag { align-self:flex-start; margin-bottom:auto; padding:7px 10px; border-radius:99px; background:var(--yellow); color:var(--ink); font:500 10px 'DM Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+      .card h3 { font:700 31px Fraunces,serif; margin:0 0 7px; letter-spacing:-.05em; }
+      .card p { margin:0; font-size:13px; line-height:1.55; color:#e9eee8; }
+      .calendar { padding:104px 0; }
+      .calendar-top { display:flex; justify-content:space-between; align-items:end; margin-bottom:32px; }
+      .calendar-top h2 { font:700 49px Fraunces,serif; margin:0; letter-spacing:-.06em; }
+      .calendar-top a { color:var(--ink); font-weight:800; font-size:13px; }
+      .events { border-top:2px solid var(--ink); }
+      .event { display:grid; grid-template-columns:180px 1fr 170px; gap:30px; padding:25px 0; border-bottom:1px solid #bcb5aa; align-items:center; }
+      .date { color:var(--coral); font:500 12px 'DM Mono',monospace; letter-spacing:.07em; text-transform:uppercase; }
+      .event h3 { margin:0 0 4px; font:700 23px Fraunces,serif; letter-spacing:-.04em; }
+      .event p { margin:0; font-size:13px; color:#5c6662; }
+      .event span { text-align:right; font-size:12px; font-weight:800; }
+      footer { background:var(--coral); padding:65px 0 25px; color:#fff8ed; }
+      .footer-main { display:flex; justify-content:space-between; align-items:end; }
+      .footer-main h2 { margin:0; max-width:600px; font:900 clamp(3rem,6vw,6.2rem)/.86 Fraunces,serif; letter-spacing:-.07em; }
+      .footer-main a { border:1px solid #fff8ed; border-radius:99px; padding:14px 19px; color:inherit; text-decoration:none; font-weight:800; font-size:13px; }
+      .footer-bottom { margin-top:78px; padding-top:18px; border-top:1px solid rgba(255,255,255,.55); display:flex; justify-content:space-between; font:500 10px 'DM Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+      @media (max-width:720px) { .wrap { padding:0 18px; } nav { height:70px; } .links a:not(.button) { display:none; } .hero { min-height:540px; border-radius:16px; padding:30px; } .hero::after{width:210px;height:210px;border-width:24px;right:-60px;top:-50px} .scroll { display:none; } .intro { padding:70px 0; grid-template-columns:1fr; gap:30px; } .intro-copy { font-size:17px; } .stats { gap:22px; } .stat b{font-size:29px} .guide { padding:72px 0; } .section-head { display:block; } .section-head p { margin-top:22px; } .cards { grid-template-columns:1fr; } .card { min-height:320px; } .calendar { padding:70px 0; } .event { grid-template-columns:1fr; gap:7px; } .event span { text-align:left; } .footer-main { display:block; } .footer-main a { display:inline-block; margin-top:30px; } .footer-bottom { margin-top:58px; } }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <nav>
+        <a class="brand" href="#top"><i class="sun"></i>Round Rock, TX</a>
+        <div class="links"><a href="#guide">Explore</a><a href="#calendar">What’s on</a><a href="#visit" class="button">Plan a visit ↗</a></div>
+      </nav>
+      <section class="hero" id="top">
+        <div class="hero-content"><div class="eyebrow">The sports capital of Texas</div><h1>Big spirit.<br>Easy pace.</h1><p>Round Rock is where wide-open Texas welcome meets a lively downtown, legendary baseball, and plenty of room to make a day of it.</p></div>
+        <span class="scroll">Scroll to wander ↓</span>
+      </section>
+      <section class="intro"><h2>Find your crew.<br>Make a day of it.</h2><div class="intro-copy">Round Rock is <strong>proudly Texas</strong>—a place for ballgames, park days, local shops, and the kind of easygoing moments that turn into traditions. Start downtown, wander the trails, and save room for something delicious.<div class="stats"><div class="stat"><b>300+</b><span>days of sunshine</span></div><div class="stat"><b>20+</b><span>miles of trails</span></div><div class="stat"><b>46</b><span>parks to explore</span></div></div></div></section>
+    </main>
+    <section class="guide" id="guide"><div class="wrap"><div class="section-head"><div><div class="eyebrow" style="color:var(--yellow)">Pick your adventure</div><h2>Three ways to<br>do Round Rock</h2></div><p>No itinerary required. Just a little Texas sunshine, a healthy appetite, and a readiness to stay awhile.</p></div><div class="cards"><article class="card"><span class="tag">Morning</span><h3>Hit the trail</h3><p>Start at Brushy Creek, with miles of scenic paths made for a fresh-air reset.</p></article><article class="card"><span class="tag">Afternoon</span><h3>Root for the home team</h3><p>Catch a Round Rock Express game and cheer along with the whole family.</p></article><article class="card"><span class="tag">After dark</span><h3>Stroll downtown</h3><p>Find local bites, a friendly patio, and a little live music under the Texas sky.</p></article></div></div></section>
+    <section class="calendar wrap" id="calendar"><div class="calendar-top"><div><div class="eyebrow" style="color:var(--coral)">Mark your calendar</div><h2>Good things ahead.</h2></div><a href="#calendar">See all events →</a></div><div class="events"><article class="event"><div class="date">Game days</div><div><h3>Round Rock Express Baseball</h3><p>Dell Diamond · Classic ballpark fun, Texas-style.</p></div><span>Sports & family ↗</span></article><article class="event"><div class="date">First Friday</div><div><h3>Downtown Round Rock</h3><p>Main Street · Shop local, meet neighbors, and stay for dinner.</p></div><span>Community ↗</span></article><article class="event"><div class="date">Every Saturday</div><div><h3>Round Rock Farmers Market</h3><p>Prete Main Street Plaza · Fresh finds from local growers and makers.</p></div><span>Eat local ↗</span></article></div></section>
+    <footer id="visit"><div class="wrap"><div class="footer-main"><h2>Your next favorite story starts here.</h2><a href="mailto:hello@visit-roundrock.example">Start planning ↗</a></div><div class="footer-bottom"><span>© Round Rock, Texas</span><span>Made for wandering</span></div></div></footer>
+  </body>
+</html>
